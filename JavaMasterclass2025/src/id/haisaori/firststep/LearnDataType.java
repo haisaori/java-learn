@@ -24,8 +24,19 @@ public class LearnDataType {
 		//short bigShortLiteralValue = 32768; //error Type mismatch: cannot convert from int to short
 		
 		
-		short myMinShortVaue = Short.MIN_VALUE;  int myMinIntValue = Integer.MAX_VALUE;
+		short myMinShortValue = Short.MIN_VALUE;  int myMinIntValue = Integer.MAX_VALUE;
 		byte myMinByteValue = Byte.MIN_VALUE, myMaxByteValue = Byte.MAX_VALUE; //ini bisa karena tipe datanya sama
+		/*
+		 * java compiler doesn't attempt to evaluate the value, in a varible, when it
+		 * di operasikan sebagai int
+		 */
+		//byte myNewByteValue = (myMinByteValue / 2); // ini error 	Type mismatch: cannot convert from int to byte 
+		byte myNewByteValue = (byte)(myMinByteValue / 2);
+		myNewByteValue = (-128/ 2);
+		/*
+		 * ROOT CAUSE karena (myMinShortValue / 2) dianggap sebagai int
+		 */
+		short myNewShortValue = (short) (myMinShortValue / 2);
 		
 	}
 }
